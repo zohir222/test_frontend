@@ -4,10 +4,11 @@ import './App.css';
 
 function App() {
 
-  const [dd , setdd] = useState();
+  const [dd , setdd] = useState([]);
   useEffect(()=>{
       axios.get("https://testbackend-production-94a2.up.railway.app/books").then((Response)=>{
         setdd(Response.data) ;
+        console.log(Response.data);
       })
       },[]) ;
 
