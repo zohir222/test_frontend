@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [dd , setdd] = useState();
+  useEffect(()=>{
+      axios.get("https://testbackend-production-94a2.up.railway.app/books").then((Response)=>{
+        setdd(Response.data) ;
+      })
+      },[]) ;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      { dd.map( (item)=> {return <h2 key={item} > {item} </h2> } ) }
     </div>
   );
 }
