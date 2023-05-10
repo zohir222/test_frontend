@@ -14,7 +14,8 @@ function App() {
 
   return (
     <div className="App">
-      { dd.map( (item)=> {return <h2 key={item} > {item} </h2> } ) }
+     <h2>koko</h2>
+     <h2> {dd} </h2>
     </div>
   );
 }
